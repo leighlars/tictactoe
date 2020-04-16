@@ -1,1 +1,110 @@
+html, body, h1, h2, h3, h4, p {
+  margin: 0;
+  padding: 0;
+}
 
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #FFFFFF;
+  display: flex;
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  font-size: 6vh;
+}
+
+h4 {
+  font-size: 4vh;
+  margin-top: 3%;
+}
+
+.p1-sidebar, .p2-sidebar {
+  background-color: darkgreen;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 25%;
+}
+
+.gameplay {
+  display: flex;
+  background-color: navy;
+  flex-direction: column;
+  height: 100vh;
+  width: 50%;
+}
+
+
+.p1-header, .gameboard-header, .p2-header {
+  font-family: "Verdana", sans-serif;
+  color: lightyellow;
+  text-align: center;
+  margin: 10%;
+}
+
+.gameboard-header {
+  margin: 8%;
+}
+
+
+.p1-mini-game-win-display, .p2-mini-game-win-display {
+  border: 3px solid navy;
+  background-color: lightyellow;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px auto;
+  overflow: scroll;
+  height: 60%;
+  width: 80%;
+}
+
+.gameplay {
+  display: flex;
+}
+
+.gameboard {
+  border: none;
+  display: grid;
+  margin: 6% auto;
+  grid-gap: 0px;
+  grid-template-columns: 33% 33% 33%;
+  height: 59%;
+  width: 80%;
+}
+
+.top-left-btn, .top-mid-btn, .top-right-btn,
+.mid-left-btn, .mid-mid-btn, .mid-right-btn,
+.bot-left-btn, .bot-mid-btn, .bot-right-btn {
+  background-color: lightyellow;
+  border: 2px solid darkgreen;
+}
+
+/* top row */
+.top-left-btn, .top-mid-btn, .top-right-btn {
+  border-top: none;
+}
+
+/* bottom row */
+.bot-left-btn, .bot-mid-btn, .bot-right-btn {
+  border-bottom: none;
+}
+
+/* left column */
+.top-left-btn, .mid-left-btn, .bot-left-btn {
+  border-left: none;
+}
+
+/* right column */
+.top-right-btn, .mid-right-btn, .bot-right-btn {
+  border-right: none;
+}

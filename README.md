@@ -15,3 +15,5 @@ This is a 6-day project. The estimated timeline is as follows:
 
 # Progression
 4/16/2020: Created private repo, cloned repo into local folder, wire-framed the HTML/CSS, and wrote out expected functions, crude rendering of HTML/CSS, created src folder with 3 JS files.
+
+![screenshot of crude app](/readme-imgs/crude-render-html-css.png)

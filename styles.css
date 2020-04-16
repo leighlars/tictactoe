@@ -10,7 +10,6 @@ html, body {
 body {
   background: #FFFFFF;
   display: flex;
-
 }
 
 * {
@@ -46,7 +45,7 @@ h4 {
 
 
 .p1-header, .gameboard-header, .p2-header {
-  font-family: "Verdana", sans-serif;
+  font-family: 'Cabin', sans-serif;
   color: lightyellow;
   text-align: center;
   margin: 10%;

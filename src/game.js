@@ -10,6 +10,45 @@ class Game {
     this.turn = true;
   }
 
+  gameplayProgression(event) {
+    if (event.target.classList.contains("top-left-btn")) {
+      this.playerTurn(event);
+      topLeftButton1.disabled = true;
+    }
+    if (event.target.classList.contains("top-mid-btn")) {
+      this.playerTurn(event);
+      topMidButton2.disabled = true;
+    }
+    if (event.target.classList.contains("top-right-btn")) {
+      this.playerTurn(event);
+      topRightButton3.disabled = true;
+    }
+    if (event.target.classList.contains("mid-left-btn")) {
+      this.playerTurn(event);
+      midLeftButton4.disabled = true;
+    }
+    if (event.target.classList.contains("mid-mid-btn")) {
+      this.playerTurn(event);
+      midMidButton5.disabled = true;
+    }
+    if (event.target.classList.contains("mid-right-btn")) {
+      this.playerTurn(event);
+      midRightButton6.disabled = true;
+    }
+    if (event.target.classList.contains("bot-left-btn")) {
+      this.playerTurn(event);
+      botLeftButton7.disabled = true;
+    }
+    if (event.target.classList.contains("bot-mid-btn")) {
+      this.playerTurn(event);
+      botMidButton8.disabled = true;
+    }
+    if (event.target.classList.contains("bot-right-btn")) {
+      this.playerTurn(event);
+      botRightButton9.disabled = true;
+    }
+  }
+
   playerTurn(event) {
     if (this.turn === true) {
       event.target.innerText = this.player1.token;

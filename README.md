@@ -15,5 +15,9 @@ This is a 6-day project. The estimated timeline is as follows:
 
 # Progression
 4/16/2020: Created private repo, cloned repo into local folder, wire-framed the HTML/CSS and wrote out expected functions, crude rendering of HTML/CSS, created src folder with 3 JS files.
+I wrote two methods for the game class that allowed 2 players to alternate their square selection, and the gameplay header prompted user for their respective turn to play. I also updated the color palette for the app. I added a board property to the game class, and the value is an object of key/values for the 9 gameboard buttons set to null as a placeholder. To plan for the method-implementation, I drafted a logic flow chart for the functions then rubber-ducked with Mod 4 student, Grayson Palmer, to ensure proper understanding of flow.
 
 ![screenshot of crude app](/readme-imgs/crude-render-html-css.png)
+![screenshot of crude app](/readme-imgs/crude-functional-game-play.png)
+
+4/17/2020:

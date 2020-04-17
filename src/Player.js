@@ -5,11 +5,11 @@ class Player {
     this.wins = [];
   }
 
-  saveWinsToStorage() {
-    localStorage.setItem("saveWinsToStorage", JSON.stringify(savedWins));
-  }
-
-  retrieveWinsFromStorage() {
-    savedWins = JSON.parse(localStorage.getItem("savedWinsToStorage")) || [];
-    }
-  }
+  // saveWinsToStorage() {
+  //   localStorage.setItem("saveWinsToStorage", JSON.stringify(savedWins));
+  // }
+  //
+  // retrieveWinsFromStorage() {
+  //   savedWins = JSON.parse(localStorage.getItem("savedWinsToStorage")) || [];
+  //   }
+}

@@ -20,4 +20,9 @@ I wrote two methods for the game class that allowed 2 players to alternate their
 ![screenshot of crude app](/readme-imgs/crude-render-html-css.png)
 ![screenshot of crude app](/readme-imgs/crude-functional-game-play.png)
 
-4/17/2020:
+4/17/2020: I changed the font family and size on CSS, commented out my reset board function, refactored my checkGameProgression function (it was too long, and 5/8 of the statements didn't work anyway).
+
+I added a dataset to my HTML for each button square so I could reference them and update each square to be the id of either one of the players (1 or 2). I also changed my "this.board" array values to zero each.
+From these new changes, I added a checkRows function, which took the three rows as sets (something I learned was an array-like object that uses unique values). If all three squares in the row were the same token, the unique value is 1, and that row is won by whichever player token occupies all 3 squares. I also updated the gameBoardHeader to reflect a message for the winner.
+
+I initially had a function of 10+ lines for my gameWinProgression, but I took out the code and made new functions for checkRows and checkSet to better check my win conditions along the rows. I changed gameWinProgression to be a handler for multiple game win conditions, and playerTurn. I also refactored my playerTurn function to include ternary statements, and to utilize the data-id of each button from the DOM.

@@ -1,4 +1,6 @@
-html, body, h1, h2, h3, h4, p {
+html, body, h1,
+h2, h3, h4,
+p {
   margin: 0;
   padding: 0;
 }
@@ -19,11 +21,11 @@ body {
 }
 
 h3 {
-  font-size: 6vh;
+  font-size: 7vh;
 }
 
 h4 {
-  font-size: 4vh;
+  font-size: 5vh;
   margin-top: 3%;
 }
 
@@ -45,9 +47,9 @@ h4 {
 
 .p1-header, .gameboard-header, .p2-header {
   color: #C94C4C;
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Lobster', cursive;
   text-align: center;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
   margin: 10%;
 }
 
@@ -61,7 +63,7 @@ h4 {
   background-color: #FFFACD;
   display: flex;
   flex-wrap: wrap;
-  margin: 40px auto;
+  margin: 7% auto;
   overflow: scroll;
   height: 60%;
   width: 80%;
@@ -74,10 +76,10 @@ h4 {
 .gameboard {
   border: none;
   display: grid;
-  margin: 7% auto;
   grid-gap: 0px;
   grid-template-columns: 33% 33% 33%;
-  height: 59%;
+  margin: 6% auto;
+  height: 60%;
   width: 80%;
 }
 
@@ -86,24 +88,24 @@ h4 {
 .bot-left-btn, .bot-mid-btn, .bot-right-btn {
   background-color: #FFFACD;
   border: 3px solid #b1cbbb;
+  color: #b1cbbb;
+  font: 40px 'Lobster', cursive;
+  text-align: center;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-/* top row */
 .top-left-btn, .top-mid-btn, .top-right-btn {
   border-top: none;
 }
 
-/* bottom row */
 .bot-left-btn, .bot-mid-btn, .bot-right-btn {
   border-bottom: none;
 }
 
-/* left column */
 .top-left-btn, .mid-left-btn, .bot-left-btn {
   border-left: none;
 }
 
-/* right column */
 .top-right-btn, .mid-right-btn, .bot-right-btn {
   border-right: none;
 }

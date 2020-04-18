@@ -2,76 +2,68 @@ class Game {
   constructor() {
     this.player1 = new Player(1, "X");
     this.player2 = new Player(2, "O");
-    this.board = {
-      tl:null, tm:null, tr:null,
-      ml:null, mm:null, mr:null,
-      bl:null, bm:null, br:null
-    };
+    this.board = [
+      0, 0, 0,
+      0, 0, 0,
+      0, 0, 0
+    ];
     this.turn = true;
   }
 
-  gameplayProgression(event) {
-    if (event.target.classList.contains("top-left-btn")) {
-      this.playerTurn(event);
-      topLeftButton1.disabled = true;
-    }
-    if (event.target.classList.contains("top-mid-btn")) {
-      this.playerTurn(event);
-      topMidButton2.disabled = true;
-    }
-    if (event.target.classList.contains("top-right-btn")) {
-      this.playerTurn(event);
-      topRightButton3.disabled = true;
-    }
-    if (event.target.classList.contains("mid-left-btn")) {
-      this.playerTurn(event);
-      midLeftButton4.disabled = true;
-    }
-    if (event.target.classList.contains("mid-mid-btn")) {
-      this.playerTurn(event);
-      midMidButton5.disabled = true;
-    }
-    if (event.target.classList.contains("mid-right-btn")) {
-      this.playerTurn(event);
-      midRightButton6.disabled = true;
-    }
-    if (event.target.classList.contains("bot-left-btn")) {
-      this.playerTurn(event);
-      botLeftButton7.disabled = true;
-    }
-    if (event.target.classList.contains("bot-mid-btn")) {
-      this.playerTurn(event);
-      botMidButton8.disabled = true;
-    }
-    if (event.target.classList.contains("bot-right-btn")) {
-      this.playerTurn(event);
-      botRightButton9.disabled = true;
+  gameplayProgression(e) {
+    this.playerTurn(e);
+    e.target.disabled = true;
+    this.checkRows();
+  }
+
+  playerTurn(e) {
+    var player = this.turn ? this.player1 : this.player2;
+    this.board[e.target.dataset.i] = player.id;
+    e.target.innerText = player.token;
+    player = this.turn ? this.player2 : this.player1;
+    gameboardHeader.innerText = `It's ${player.token}'s turn!`;
+    this.turn = !this.turn;
+  }
+
+  checkRows() {
+    var rows = [];
+    for (var i = 0; i < this.board.length; i += 3) {
+      var slicedRow = this.board.slice(i, i + 3);
+      this.checkSet(slicedRow);
     }
   }
 
-  playerTurn(event) {
-    if (this.turn === true) {
-      event.target.innerText = this.player1.token;
-      gameboardHeader.innerText = `It's ${this.player2.token}'s turn!`;
-      this.turn = false;
-    } else if (this.turn === false) {
-      event.target.innerText = this.player2.token;
-      gameboardHeader.innerText = `It's ${this.player1.token}'s turn!`;
-      this.turn = true;
+  checkSet(groupOf3) {
+    var set = new Set(groupOf3);
+    if (!(set.has(0)) && set.size === 1) {
+      var winner = Array.from(set)[0];
+      var winningPlayer = this[`player${winner}`];
+      winningPlayer.wins.push(this);
+      gameboardHeader.innerText = `${winningPlayer.token} wins!`;
+      if (winner === 1) {
+        p1WinCounter.innerText = `${winningPlayer.wins.length} wins`;
+      } else {
+        p2WinCounter.innerText = `${winningPlayer.wins.length} wins`;
+      }
     }
   }
 
-  // A way to check the Game’s board data for win conditions
-  // checkWinConditions() {
-  //   // if same 3 icons in rows, columns, or diagonals, win for that player
-  //   // if (btn 1=2=3 || 1=5=9 || 1=4=7 || 2=5=8 || 3=6=9 || 4=5=6= || 7=8=9)
-  //   gameboardHeader.innerText = `${player1.token} wins!`
-  //   gameboardHeader.innerText = `${player2.token} wins!`
-  //   checkDraw();
-  //
-  //   saveGameToPlayerWin();
-  // }
+  checkColumns() {
+    var columns = [];
+    for (var i = 0; i < this.board.length; i+= 4) {
+      var slicedColumn = this.board.slice(i, i + 4);
+      this.checkSet(slicedColumn);
+    }
+  }
 
+
+}
+
+
+
+
+
+// resetBoard();
   // A way to detect when a game is a draw (no one has won)
   // checkDraw() {
   //   // if no rows / columns / diagonals are 3 in a row,
@@ -105,24 +97,21 @@ class Game {
 
   // A way to reset the Game’s board to begin a new game
   // resetBoard() {
-  //   b1.value = "";
-  //   b2.value = "";
-  //   b3.value = "";
-  //   b4.value = "";
-  //   b5.value = "";
-  //   b6.value = "";
-  //   b7.value = "";
-  //   b8.value = "";
-  //   b9.value = "";
-  //   b1.disabled = false;
-  //   b2.disabled = false;
-  //   b3.disabled = false;
-  //   b4.disabled = false;
-  //   b5.disabled = false;
-  //   b6.disabled = false;
-  //   b7.disabled = false;
-  //   b8.disabled = false;
-  //   b9.disabled = false;
-  // }
-
-}
+  //   topLeftButton1.value = "";
+  //   topMidButton2 = "";
+  //   topRightButton3.value = "";
+  //   midLeftButton4.value = "";
+  //   midMidButton5.value = "";
+  //   midRightButton6.value = "";
+  //   botLeftButton7.value = "";
+  //   botMidButton8.value = "";
+  //   botRightButton9.value = "";
+  //   topLeftButton1.disabled = false;
+  //   topMidButton2.disabled = false;
+  //   topRightButton3.disabled = false;
+  //   midLeftButton4.disabled = false;
+  //   midMidButton5.disabled = false;
+  //   midRightButton6.disabled = false;
+  //   botLeftButton7.disabled = false;
+  //   botMidButton8.disabled = false;
+  //   botRightButton9.disabled = false;

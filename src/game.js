@@ -100,17 +100,17 @@ class Game {
     this.checkWin(backwardDiagonal);
   }
 
-  checkWinConditions() {
-    this.checkRows();
-    this.checkColumns();
-    this.checkDiagonals();
-  }
-
   checkDraw() {
     if (!this.board.includes(0)) {
       this.updateGameboardHeader("draw");
       setTimeout(this.resetBoard, 1000);
     }
+  }
+
+  checkWinConditions() {
+    this.checkRows();
+    this.checkColumns();
+    this.checkDiagonals();
   }
 
   resetBoard() {

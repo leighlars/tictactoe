@@ -76,7 +76,7 @@ h4 {
   border: 2px solid #C94C4C;
   color: #b1cbbb;
   display: grid;
-  font: 15px 'Lobster', cursive;
+  font: 2vh 'Lobster', cursive;
   grid-gap: 0px;
   grid-template-columns: 33% 33% 33%;
   margin: 8px;

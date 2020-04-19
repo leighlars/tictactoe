@@ -59,14 +59,31 @@ h4 {
 }
 
 .p1-mini-game-win-display, .p2-mini-game-win-display {
-  border: 3px solid #C94C4C;
   background-color: #FFFACD;
+  border: 3px solid #C94C4C;
+  box-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
   display: flex;
   flex-wrap: wrap;
   margin: 7% auto;
   overflow: scroll;
+  padding: 12px;
   height: 60%;
   width: 80%;
+}
+
+.minigame {
+  background-color: #FFFACD;
+  border: 2px solid #C94C4C;
+  color: #b1cbbb;
+  display: grid;
+  font: 15px 'Lobster', cursive;
+  grid-gap: 0px;
+  grid-template-columns: 33% 33% 33%;
+  margin: 8px;
+  padding-left: 7px;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+  height: 70px;
+  width: 70px;
 }
 
 .gameplay {
@@ -74,11 +91,10 @@ h4 {
 }
 
 .gameboard {
-  border: none;
   display: grid;
   grid-gap: 0px;
   grid-template-columns: 33% 33% 33%;
-  margin: 6% auto;
+  margin: 6% 10%;
   height: 60%;
   width: 80%;
 }

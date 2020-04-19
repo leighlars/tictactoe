@@ -33,6 +33,16 @@ class Game {
     }
   }
 
+  updateGameboardHeader(condition, winningPlayer) {
+    if (condition === "win") {
+        gameboardHeader.innerText = `${winningPlayer.token} wins!`;
+    } else if (condition === "draw") {
+        gameboardHeader.innerText = "It's a draw!";
+    } else {
+        gameboardHeader.innerText = `It's ${this.turn ? "X" : "O"}'s turn!`;
+    }
+  }
+
   updateWinner(winner) {
     var winningPlayer = this[`player${winner}`];
     winningPlayer.wins.push(this);
@@ -43,39 +53,27 @@ class Game {
     return winningPlayer;
   }
 
-  checkDraw() {
-    if (!this.board.includes(0)) {
-      this.updateGameboardHeader("draw");
-      setTimeout(this.resetBoard, 1000);
-    }
-  }
-
-  updateGameboardHeader(condition, winningPlayer) {
-    if (condition === "win") {
-      gameboardHeader.innerText = `${winningPlayer.token} wins!`;
-    } else if (condition === "draw") {
-      gameboardHeader.innerText = "It's a draw!";
-    } else {
-      gameboardHeader.innerText = `It's ${this.turn ? "X" : "O"}'s turn!`;
-    }
-  }
-
   updatePlayerSidebar(winningPlayer) {
-    if (winningPlayer.id === 1) {
-      p1WinCounter.innerText = `${winningPlayer.wins.length} wins`;
-    } else {
-      p2WinCounter.innerText = `${winningPlayer.wins.length} wins`;
+    var counter = winningPlayer.id === 1 ? p1WinCounter : p2WinCounter;
+    var winDisplay = winningPlayer.id === 1 ? p1WinDisplay : p2WinDisplay;
+    for (var i = 0; i < winningPlayer.wins.length; i++) {
+      counter.innerText = `${winningPlayer.wins.length} wins`;
+      var newMiniBoard = this.createMiniBoard(winningPlayer.wins[i]);
+      winDisplay.appendChild(newMiniBoard);
     }
   }
 
-  // createMiniBoard(miniboard) {
-  //   for (var i = 0; i < winningPlayer.wins; i++) {
-  //     p1WinDisplay.insertAdjacentHTML("afterbegin", miniboard);
-  //   }
-  //   for (var i = 0; i < winningPlayer.wins; i++) {
-  //     p2WinDisplay.insertAdjacentHTML("afterbegin", miniboard);
-  //   }
-  // }
+  createMiniBoard(minigame) {
+    var boxes = document.createElement("DIV");
+    boxes.classList.add("minigame");
+    for (var i = 0; i < minigame.board.length; i++) {
+      var token = "";
+      if (minigame.board[i] === 1) token = "X";
+      if (minigame.board[i] === 2) token = "O";
+      boxes.insertAdjacentHTML("beforeend", `<div>${token}</div>`);
+    }
+    return boxes;
+  }
 
   checkRows() {
     var rows = [];
@@ -106,6 +104,13 @@ class Game {
     this.checkRows();
     this.checkColumns();
     this.checkDiagonals();
+  }
+
+  checkDraw() {
+    if (!this.board.includes(0)) {
+      this.updateGameboardHeader("draw");
+      setTimeout(this.resetBoard, 1000);
+    }
   }
 
   resetBoard() {

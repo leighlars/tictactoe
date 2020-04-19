@@ -26,3 +26,9 @@ I added a dataset to my HTML for each button square so I could reference them an
 From these new changes, I added a checkRows function, which took the three rows as sets (something I learned was an array-like object that uses unique values). If all three squares in the row were the same token, the unique value is 1, and that row is won by whichever player token occupies all 3 squares. I also updated the gameBoardHeader to reflect a message for the winner.
 
 I initially had a function of 10+ lines for my gameWinProgression, but I took out the code and made new functions for checkRows and checkSet to better check my win conditions along the rows. I changed gameWinProgression to be a handler for multiple game win conditions, and playerTurn. I also refactored my playerTurn function to include ternary statements, and to utilize the data-id of each button from the DOM.
+
+4/18/2020
+
+I added functionality to add mini-games to the displayed mini-game section for each player. There are some tweaks I need to work out (resetting the board and header after the 3rd game). I also added styling to the mini-games. I enlisted the help of Turing grad, Ryan Barnett, for much of the coding, stating first of my planned logic, and learning improved ways to write what I initially coded.
+
+![screenshot of displayed mini-games](/readme-imgs/displayed-minigames.png)

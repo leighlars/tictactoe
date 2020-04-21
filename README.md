@@ -7,7 +7,7 @@ The objective for this project is to design a 2-player interactive and responsiv
 # Planning
 This solo project will use Atom as a text editor, Github Projects as a project management tool (https://github.com/leighlars/tictactoe/projects), MDN and lesson plans as references, and the employment of mentors for code feedback, guidance, and the "rubber duck" code comprehension method.
 
-This is a 6-day project. The estimated timeline is as follows:
+This is a 5-day project. The estimated timeline is as follows:
 * Thursday pm: complete set-up, wireframes, build crude yet functional HTML/CSS, create classes for JS files
 * Friday / Saturday: establish functionality for a functional game completion, including resetting the game board
 * Sunday: displaying and persisting player data in sidebars (local storage)

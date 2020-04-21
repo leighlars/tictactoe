@@ -7,7 +7,6 @@ var p2WinDisplay = document.querySelector(".p2-mini-game-win-display");
 
 var game = new Game();
 
-// window.onload = retrieveWinsFromStorage();
 gameboard.addEventListener("click", game.playerTurn);
 
 function updateBoard(element, token) {
@@ -25,13 +24,13 @@ function updateGameboardHeader(condition, winningPlayer) {
   }
 }
 
-function createMiniBoard(minigame) {
+function createMiniBoard(miniboard) {
   var boxes = document.createElement("DIV");
-  boxes.classList.add("minigame");
-  for (var i = 0; i < minigame.board.length; i++) {
+  boxes.classList.add("miniboard");
+  for (var i = 0; i < miniboard.length; i++) {
     var token = "";
-    if (minigame.board[i] === 1) token = "X";
-    if (minigame.board[i] === 2) token = "O";
+    if (miniboard[i] === 1) token = "X";
+    if (miniboard[i] === 2) token = "O";
     boxes.insertAdjacentHTML("beforeend", `<div>${token}</div>`);
   }
   return boxes;

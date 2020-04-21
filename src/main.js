@@ -8,12 +8,11 @@ var p2WinDisplay = document.querySelector(".p2-mini-game-win-display");
 var game = new Game();
 
 // window.onload = retrieveWinsFromStorage();
-gameboard.addEventListener("click", selectSquare);
+gameboard.addEventListener("click", game.playerTurn);
 
-
-function selectSquare(e) {
-  e.preventDefault();
-  game.gameplayProgression(e);
+function updateBoard(element, token) {
+  element.innerText = token;
+  element.disabled = true;
 }
 
 function updateGameboardHeader(condition, winningPlayer) {
@@ -26,13 +25,32 @@ function updateGameboardHeader(condition, winningPlayer) {
   }
 }
 
+function createMiniBoard(minigame) {
+  var boxes = document.createElement("DIV");
+  boxes.classList.add("minigame");
+  for (var i = 0; i < minigame.board.length; i++) {
+    var token = "";
+    if (minigame.board[i] === 1) token = "X";
+    if (minigame.board[i] === 2) token = "O";
+    boxes.insertAdjacentHTML("beforeend", `<div>${token}</div>`);
+  }
+  return boxes;
+}
+
 function updatePlayerSidebar(winningPlayer) {
   var winCounter = winningPlayer.id === 1 ? p1WinCounter : p2WinCounter;
   var winDisplay = winningPlayer.id === 1 ? p1WinDisplay : p2WinDisplay;
   winDisplay.innerText = "";
   for (var i = 0; i < winningPlayer.wins.length; i++) {
     winCounter.innerText = `${winningPlayer.wins.length} wins`;
-    var newMiniBoard = game.createMiniBoard(winningPlayer.wins[i]);
+    var newMiniBoard = createMiniBoard(winningPlayer.wins[i]);
     winDisplay.appendChild(newMiniBoard);
+  }
+}
+
+function clearBoardDOM() {
+  for (var i = 0; i < gameboard.children.length; i++) {
+    gameboard.children[i].innerText = "";
+    gameboard.children[i].disabled = false;
   }
 }

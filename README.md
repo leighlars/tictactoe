@@ -34,4 +34,8 @@ I added functionality to add mini-games to the displayed mini-game section for e
 ![screenshot of displayed mini-games](/readme-imgs/displayed-minigames.png)
 
 4/20/2020
-Polished up code by refactoring combination of win condition methods, added local storage methods, and am able to persist over refreshed pages. I fixed the bugs that were previously preventing execution by changing the reset board methods. 
+Polished up code by refactoring combination of win condition methods, added local storage methods, and am able to persist over refreshed pages. I fixed the bugs that were previously preventing execution by changing the reset board methods. Received refactoring and functioning assistance from Ryan Barnett (alumni) and gitflow assistance from Carlyle Douglas (peer).
+
+![screenshot of finished game](/readme-imgs/completed-game.png)
+
+Bug issue: Turn 9, if winner, header says "draw".

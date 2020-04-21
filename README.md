@@ -39,3 +39,6 @@ Polished up code by refactoring combination of win condition methods, added loca
 ![screenshot of finished game](/readme-imgs/completed-game.png)
 
 Bug issue: Turn 9, if winner, header says "draw".
+
+4/21/2020
+Deleted global variables and refactored the updatePlayerSidebar function for readability. Polished up CSS issues. Pretty much a polishing and beautifying day before final turn-in. 

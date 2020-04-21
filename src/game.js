@@ -21,7 +21,8 @@ class Game {
 
   gameOver(winner) {
     var winningPlayer = this[`player${winner}`];
-    winningPlayer.wins.push(this);
+    winningPlayer.wins.push(this.board);
+    winningPlayer.saveWinsToStorage();
     updateGameboardHeader("win", winningPlayer);
     updatePlayerSidebar(winningPlayer);
     setTimeout(this.resetBoard, 500);

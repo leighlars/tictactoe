@@ -32,3 +32,6 @@ I initially had a function of 10+ lines for my gameWinProgression, but I took ou
 I added functionality to add mini-games to the displayed mini-game section for each player. There are some tweaks I need to work out (resetting the board and header after the 3rd game). I also added styling to the mini-games. I enlisted the help of Turing grad, Ryan Barnett, for much of the coding, stating first of my planned logic, and learning improved ways to write what I initially coded.
 
 ![screenshot of displayed mini-games](/readme-imgs/displayed-minigames.png)
+
+4/20/2020
+Polished up code by refactoring combination of win condition methods, added local storage methods, and am able to persist over refreshed pages. I fixed the bugs that were previously preventing execution by changing the reset board methods. 

@@ -8,6 +8,7 @@ class Game {
       0, 0, 0
     ];
     this.turn = true;
+    this.resetBoard = this.resetBoard.bind(this);
   }
 
   gameplayProgression(e) {
@@ -49,15 +50,15 @@ class Game {
     this.updateGameboardHeader("win", winningPlayer);
     this.updatePlayerSidebar(winningPlayer);
     setTimeout(this.resetBoard, 500);
-    setTimeout(this.updateGameboardHeader, 1000);
-    return winningPlayer;
+    setTimeout(this.updateGameboardHeader, 500);
   }
 
   updatePlayerSidebar(winningPlayer) {
-    var counter = winningPlayer.id === 1 ? p1WinCounter : p2WinCounter;
+    var winCounter = winningPlayer.id === 1 ? p1WinCounter : p2WinCounter;
     var winDisplay = winningPlayer.id === 1 ? p1WinDisplay : p2WinDisplay;
+    winDisplay.innerText = "";
     for (var i = 0; i < winningPlayer.wins.length; i++) {
-      counter.innerText = `${winningPlayer.wins.length} wins`;
+      winCounter.innerText = `${winningPlayer.wins.length} wins`;
       var newMiniBoard = this.createMiniBoard(winningPlayer.wins[i]);
       winDisplay.appendChild(newMiniBoard);
     }
@@ -114,6 +115,7 @@ class Game {
   }
 
   resetBoard() {
+    console.log(this);
     this.board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     for (var i = 0; i < gameboard.children.length; i++) {
       gameboard.children[i].innerText = "";

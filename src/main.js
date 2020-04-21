@@ -25,3 +25,14 @@ function updateGameboardHeader(condition, winningPlayer) {
       gameboardHeader.innerText = `It's ${game.turn ? "X" : "O"}'s turn!`;
   }
 }
+
+function updatePlayerSidebar(winningPlayer) {
+  var winCounter = winningPlayer.id === 1 ? p1WinCounter : p2WinCounter;
+  var winDisplay = winningPlayer.id === 1 ? p1WinDisplay : p2WinDisplay;
+  winDisplay.innerText = "";
+  for (var i = 0; i < winningPlayer.wins.length; i++) {
+    winCounter.innerText = `${winningPlayer.wins.length} wins`;
+    var newMiniBoard = game.createMiniBoard(winningPlayer.wins[i]);
+    winDisplay.appendChild(newMiniBoard);
+  }
+}

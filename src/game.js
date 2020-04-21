@@ -34,34 +34,13 @@ class Game {
     }
   }
 
-  // updateGameboardHeader(condition, winningPlayer) {
-  //   if (condition === "win") {
-  //       gameboardHeader.innerText = `${winningPlayer.token} wins!`;
-  //   } else if (condition === "draw") {
-  //       gameboardHeader.innerText = "It's a draw!";
-  //   } else {
-  //       gameboardHeader.innerText = `It's ${this.turn ? "X" : "O"}'s turn!`;
-  //   }
-  // }
-
   updateWinner(winner) {
     var winningPlayer = this[`player${winner}`];
     winningPlayer.wins.push(this);
     updateGameboardHeader("win", winningPlayer);
-    this.updatePlayerSidebar(winningPlayer);
+    updatePlayerSidebar(winningPlayer);
     setTimeout(this.resetBoard, 500);
     setTimeout(updateGameboardHeader, 500);
-  }
-
-  updatePlayerSidebar(winningPlayer) {
-    var winCounter = winningPlayer.id === 1 ? p1WinCounter : p2WinCounter;
-    var winDisplay = winningPlayer.id === 1 ? p1WinDisplay : p2WinDisplay;
-    winDisplay.innerText = "";
-    for (var i = 0; i < winningPlayer.wins.length; i++) {
-      winCounter.innerText = `${winningPlayer.wins.length} wins`;
-      var newMiniBoard = this.createMiniBoard(winningPlayer.wins[i]);
-      winDisplay.appendChild(newMiniBoard);
-    }
   }
 
   createMiniBoard(minigame) {

@@ -15,3 +15,13 @@ function selectSquare(e) {
   e.preventDefault();
   game.gameplayProgression(e);
 }
+
+function updateGameboardHeader(condition, winningPlayer) {
+  if (condition === "win") {
+      gameboardHeader.innerText = `${winningPlayer.token} wins!`;
+  } else if (condition === "draw") {
+      gameboardHeader.innerText = "It's a draw!";
+  } else {
+      gameboardHeader.innerText = `It's ${game.turn ? "X" : "O"}'s turn!`;
+  }
+}

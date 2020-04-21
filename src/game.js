@@ -22,7 +22,7 @@ class Game {
     this.board[e.target.dataset.i] = player.id;
     e.target.innerText = player.token;
     this.turn = !this.turn;
-    this.updateGameboardHeader();
+    updateGameboardHeader();
   }
 
   checkWin(groupOf3) {
@@ -34,23 +34,23 @@ class Game {
     }
   }
 
-  updateGameboardHeader(condition, winningPlayer) {
-    if (condition === "win") {
-        gameboardHeader.innerText = `${winningPlayer.token} wins!`;
-    } else if (condition === "draw") {
-        gameboardHeader.innerText = "It's a draw!";
-    } else {
-        gameboardHeader.innerText = `It's ${this.turn ? "X" : "O"}'s turn!`;
-    }
-  }
+  // updateGameboardHeader(condition, winningPlayer) {
+  //   if (condition === "win") {
+  //       gameboardHeader.innerText = `${winningPlayer.token} wins!`;
+  //   } else if (condition === "draw") {
+  //       gameboardHeader.innerText = "It's a draw!";
+  //   } else {
+  //       gameboardHeader.innerText = `It's ${this.turn ? "X" : "O"}'s turn!`;
+  //   }
+  // }
 
   updateWinner(winner) {
     var winningPlayer = this[`player${winner}`];
     winningPlayer.wins.push(this);
-    this.updateGameboardHeader("win", winningPlayer);
+    updateGameboardHeader("win", winningPlayer);
     this.updatePlayerSidebar(winningPlayer);
     setTimeout(this.resetBoard, 500);
-    setTimeout(this.updateGameboardHeader, 500);
+    setTimeout(updateGameboardHeader, 500);
   }
 
   updatePlayerSidebar(winningPlayer) {
@@ -103,8 +103,8 @@ class Game {
 
   checkDraw() {
     if (!this.board.includes(0)) {
-      this.updateGameboardHeader("draw");
-      setTimeout(this.resetBoard, 1000);
+      updateGameboardHeader("draw");
+      setTimeout(this.resetBoard, 500);
     }
   }
 
@@ -115,7 +115,6 @@ class Game {
   }
 
   resetBoard() {
-    console.log(this);
     this.board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     for (var i = 0; i < gameboard.children.length; i++) {
       gameboard.children[i].innerText = "";

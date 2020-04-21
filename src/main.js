@@ -1,9 +1,5 @@
 var gameboard = document.querySelector(".gameboard");
 var gameboardHeader = document.querySelector(".gameboard-header")
-var p1WinCounter = document.querySelector(".p1-wins-counter");
-var p2WinCounter = document.querySelector(".p2-wins-counter");
-var p1WinDisplay = document.querySelector(".p1-mini-game-win-display");
-var p2WinDisplay = document.querySelector(".p2-mini-game-win-display");
 
 var game = new Game();
 
@@ -25,23 +21,24 @@ function updateGameboardHeader(condition, winningPlayer) {
 }
 
 function createMiniBoard(miniboard) {
-  var boxes = document.createElement("DIV");
-  boxes.classList.add("miniboard");
+  var board = document.createElement("DIV");
+  board.classList.add("miniboard");
   for (var i = 0; i < miniboard.length; i++) {
     var token = "";
     if (miniboard[i] === 1) token = "X";
     if (miniboard[i] === 2) token = "O";
-    boxes.insertAdjacentHTML("beforeend", `<div>${token}</div>`);
+    var box = `<div>${token}</div>`;
+    board.insertAdjacentHTML("beforeend", box);
   }
-  return boxes;
+  return board;
 }
 
 function updatePlayerSidebar(winningPlayer) {
-  var winCounter = winningPlayer.id === 1 ? p1WinCounter : p2WinCounter;
-  var winDisplay = winningPlayer.id === 1 ? p1WinDisplay : p2WinDisplay;
+  var winCounter = document.querySelector(`.p${winningPlayer.id}-wins-counter`);
+  var winDisplay = document.querySelector(`.p${winningPlayer.id}-mini-game-win-display`);
   winDisplay.innerText = "";
+  winCounter.innerText = `${winningPlayer.wins.length} wins`;
   for (var i = 0; i < winningPlayer.wins.length; i++) {
-    winCounter.innerText = `${winningPlayer.wins.length} wins`;
     var newMiniBoard = createMiniBoard(winningPlayer.wins[i]);
     winDisplay.appendChild(newMiniBoard);
   }
@@ -49,7 +46,8 @@ function updatePlayerSidebar(winningPlayer) {
 
 function clearBoardDOM() {
   for (var i = 0; i < gameboard.children.length; i++) {
-    gameboard.children[i].innerText = "";
-    gameboard.children[i].disabled = false;
+    var button = gameboard.children[i];
+    button.innerText = "";
+    button.disabled = false;
   }
 }

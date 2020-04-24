@@ -14,13 +14,18 @@ This is a 5-day project. The estimated timeline is as follows:
 * Monday: make the game pretty!! Polish code for DRY, SRP, dev empathy.
 
 # Progression
-4/16/2020: Created private repo, cloned repo into local folder, wire-framed the HTML/CSS and wrote out expected functions, crude rendering of HTML/CSS, created src folder with 3 JS files.
+
+4/16/2020 
+
+Created private repo, cloned repo into local folder, wire-framed the HTML/CSS and wrote out expected functions, crude rendering of HTML/CSS, created src folder with 3 JS files.
 I wrote two methods for the game class that allowed 2 players to alternate their square selection, and the gameplay header prompted user for their respective turn to play. I also updated the color palette for the app. I added a board property to the game class, and the value is an object of key/values for the 9 gameboard buttons set to null as a placeholder. To plan for the method-implementation, I drafted a logic flow chart for the functions then rubber-ducked with Mod 4 student, Grayson Palmer, to ensure proper understanding of flow.
 
 ![screenshot of crude app](/readme-imgs/crude-render-html-css.png)
 ![screenshot of crude app](/readme-imgs/crude-functional-game-play.png)
 
-4/17/2020: I changed the font family and size on CSS, commented out my reset board function, refactored my checkGameProgression function (it was too long, and 5/8 of the statements didn't work anyway).
+4/17/2020
+
+I changed the font family and size on CSS, commented out my reset board function, refactored my checkGameProgression function (it was too long, and 5/8 of the statements didn't work anyway).
 
 I added a dataset to my HTML for each button square so I could reference them and update each square to be the id of either one of the players (1 or 2). I also changed my "this.board" array values to zero each.
 From these new changes, I added a checkRows function, which took the three rows as sets (something I learned was an array-like object that uses unique values). If all three squares in the row were the same token, the unique value is 1, and that row is won by whichever player token occupies all 3 squares. I also updated the gameBoardHeader to reflect a message for the winner.
@@ -34,6 +39,7 @@ I added functionality to add mini-games to the displayed mini-game section for e
 ![screenshot of displayed mini-games](/readme-imgs/displayed-minigames.png)
 
 4/20/2020
+
 Polished up code by refactoring combination of win condition methods, added local storage methods, and am able to persist over refreshed pages. I fixed the bugs that were previously preventing execution by changing the reset board methods. Received refactoring and functioning assistance from Ryan Barnett (alumni) and gitflow assistance from Carlyle Douglas (peer).
 
 ![screenshot of finished game](/readme-imgs/completed-game.png)
@@ -41,4 +47,5 @@ Polished up code by refactoring combination of win condition methods, added loca
 Bug issue: Turn 9, if winner, header says "draw".
 
 4/21/2020
+
 Deleted global variables and refactored the updatePlayerSidebar function for readability. Polished up CSS issues. Pretty much a polishing and beautifying day before final turn-in. 
